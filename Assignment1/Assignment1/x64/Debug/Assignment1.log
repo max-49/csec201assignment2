@@ -1,0 +1,4 @@
+﻿cl : command line  warning D9025: overriding '/sdl' with '/GS-'
+  Source.c
+C:\Users\massi\Documents\csec201\Assignment1\Assignment1\Source.c(60,9): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  Assignment1.vcxproj -> C:\Users\massi\Documents\csec201\Assignment1\x64\Debug\Assignment1.exe
