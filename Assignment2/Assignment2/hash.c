@@ -9,6 +9,18 @@
 //SHA_40 hash function
 unsigned char* SHA_40(const unsigned char* x, size_t size)
 {
+	if (x == NULL) {
+		unsigned char* digest = (unsigned char*)malloc(DIGEST_SIZE);
+
+		digest[0] = 0;
+		digest[1] = 0;
+		digest[2] = 0;
+		digest[3] = 0;
+		digest[4] = 0;
+
+		return digest;
+	}
+
 	unsigned char A = 11;
 	unsigned char B = 22;
 	unsigned char C = 33;

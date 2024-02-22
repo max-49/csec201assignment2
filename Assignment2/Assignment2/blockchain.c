@@ -40,7 +40,7 @@ void print_blockchain(struct Blockchain* blockchain)
 }
 
 void set_digest(struct Digest* digest, struct Block* block) {
-    struct Digest* computedHash = (struct Digest*)SHA_40((unsigned char*) block, sizeof(struct Block));
+    struct Digest* computedHash = (struct Digest*)SHA_40(block, sizeof(struct Block));
     for (int i = 0; i < sizeof(struct Digest); i++) {
         digest[i] = computedHash[i];
     }
@@ -48,38 +48,25 @@ void set_digest(struct Digest* digest, struct Block* block) {
 
 void add(struct Blockchain* chain, int data) {
 
-    if (chain->size == 0) {
-        struct Block* newHead = (struct Block*)malloc(sizeof(struct Block));
+    struct Block* newHead = (struct Block*)malloc(sizeof(struct Block));
+    if (!chain->head) {
         newHead->height = 0;
-        newHead->data = data;
-        newHead->prev_block = NULL;
-
-        unsigned char* digest[sizeof(struct Digest)];
-        for (int i = 0; i < sizeof(struct Digest); i++) {
-            digest[i] = (unsigned char) 0;
-        }
-
-        newHead->prev_hash = *((struct Digest*) digest);
-
-        chain->head = newHead;
-        chain->size++;
     }
     else {
-        struct Block* newHead = (struct Block*)malloc(sizeof(struct Block));
         newHead->height = chain->head->height + 1;
-        newHead->data = data;
-        newHead->prev_block = chain->head;
-
-        struct Digest prevHash[sizeof(struct Digest)];
-
-        set_digest(prevHash, chain->head);
-
-        newHead->prev_hash = *prevHash;
-
-        chain->head = newHead;
-        chain->size++;
-
     }
+    newHead->data = data;
+    newHead->prev_block = chain->head;
+
+    struct Digest prevHash[sizeof(struct Digest)];
+
+    set_digest(prevHash, chain->head);
+
+    newHead->prev_hash = *prevHash;
+
+    chain->head = newHead;
+    chain->size++;
+
 }
 
 void verify(struct Blockchain* chain) {

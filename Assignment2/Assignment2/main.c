@@ -4,7 +4,8 @@
 #include "blockchain.h"
 
 int main(void) {
-	/*char test1[] = "Rob";
+	printf("Part A\n");
+	char test1[] = "Rob";
 	char test2[] = "James";
 	char test3[] = "CSEC";
 	char test4[] = "Massimo";
@@ -20,7 +21,8 @@ int main(void) {
 	printf("The SHA-40 hash of %s is %d %d %d %d %d\n\n", test4, test4res[0], test4res[1], test4res[2], test4res[3], test4res[4]);
 
 	printf("digest_equal(\"Rob\", \"Rob\") = %d\n", digest_equal(SHA_40("Rob", 3), SHA_40("Rob", 3)));
-	printf("digest_equal(\"James\", \"Rob\") = %d\n", digest_equal(SHA_40("James", 5), SHA_40("Rob", 3)));*/
+	printf("digest_equal(\"James\", \"Rob\") = %d\n", digest_equal(SHA_40("James", 5), SHA_40("Rob", 3)));
 
+	printf("\n\n\nPart B\n");
 	testBlockChain();
 }
