@@ -1,6 +1,9 @@
-﻿  main.c
-C:\Users\massi\Documents\csec201\Assignment2\Assignment2\main.c(23,63): warning C4133: 'function': incompatible types - from 'unsigned char *' to 'Digest *'
-C:\Users\massi\Documents\csec201\Assignment2\Assignment2\main.c(23,81): warning C4133: 'function': incompatible types - from 'unsigned char *' to 'Digest *'
-C:\Users\massi\Documents\csec201\Assignment2\Assignment2\main.c(24,65): warning C4133: 'function': incompatible types - from 'unsigned char *' to 'Digest *'
-C:\Users\massi\Documents\csec201\Assignment2\Assignment2\main.c(24,85): warning C4133: 'function': incompatible types - from 'unsigned char *' to 'Digest *'
+﻿  blockchain.c
+C:\Users\massi\Documents\csec201\Assignment2\Assignment2\blockchain.c(43,58): warning C4133: 'function': incompatible types - from 'Block *' to 'const unsigned char *'
+C:\Users\massi\Documents\csec201\Assignment2\Assignment2\blockchain.c(53,12): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'Block *'
+C:\Users\massi\Documents\csec201\Assignment2\Assignment2\blockchain.c(53,12): warning C4313: 'printf': '%d' in format string conflicts with argument 1 of type 'Block *'
+C:\Users\massi\Documents\csec201\Assignment2\Assignment2\blockchain.c(80,20): warning C4047: 'function': 'Digest *' differs in levels of indirection from 'Digest *[5]'
+C:\Users\massi\Documents\csec201\Assignment2\Assignment2\blockchain.c(80,20): warning C4024: 'set_digest': different types for formal and actual parameter 1
+C:\Users\massi\Documents\csec201\Assignment2\Assignment2\blockchain.c(81,27): warning C4047: 'function': 'Digest *' differs in levels of indirection from 'Digest *[5]'
+C:\Users\massi\Documents\csec201\Assignment2\Assignment2\blockchain.c(81,27): warning C4024: 'digest_equal': different types for formal and actual parameter 1
   Assignment2.vcxproj -> C:\Users\massi\Documents\csec201\Assignment2\x64\Debug\Assignment2.exe
