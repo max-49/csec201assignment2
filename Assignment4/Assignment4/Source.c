@@ -4,12 +4,21 @@
 #include <winsock2.h>
 #include <wincrypt.h>
 
+// tell linker to link winsock and wincrypt
 #pragma comment(lib, "ws2_32.lib")
 #pragma comment(lib, "crypt32.lib")
 
+// global defines
 #define PORT 1337
 #define BUFFER_SIZE 1024
 
+/*
+* Returns the md5 hash of a string using wincrypt
+* 
+* Parameters:
+* data: data to hash
+* ret_str: string to store the hash in
+*/
 void get_md5(const char* data, char* ret_str) {
 	HCRYPTPROV hProv;
 	HCRYPTHASH hHash;
@@ -30,6 +39,13 @@ void get_md5(const char* data, char* ret_str) {
 	ret_str[32] = '\0';
 }
 
+/*
+* Returns the sha1 hash of a string using wincrypt
+* 
+* Parameters:
+* data: data to hash
+* ret_str: string to store the hash in
+*/
 void get_sha1(const char* data, char* ret_str) {
 	HCRYPTPROV hProv;
 	HCRYPTHASH hHash;
@@ -50,6 +66,13 @@ void get_sha1(const char* data, char* ret_str) {
 	ret_str[40] = '\0';
 }
 
+/*
+* Returns the sha256 hash of a string using wincrypt
+* 
+* Parameters:
+* data: data to hash
+* ret_str: string to store the hash in
+*/
 void get_sha256(const char* data, char* ret_str) {
 	HCRYPTPROV hProv;
 	HCRYPTHASH hHash;
@@ -70,59 +93,94 @@ void get_sha256(const char* data, char* ret_str) {
 	ret_str[64] = '\0';
 }
 
+/*
+* Function to handle a client connection and accept commands. Interacts with
+* the client in receiving/responses in its own thread.
+* 
+* Parameters:
+* clientSocket - the socket that handles the accepted client connection
+*/
 int __stdcall HandleClient(SOCKET* clientSocket) {
 	SOCKET clientConn = *clientSocket;
 	char buffer[BUFFER_SIZE];
 	int bytesReceived;
 
-	for (int i = 0; i < 1024; i++) buffer[i] = '\0';
+	// send message to client confirming connection
+	char welcomeMsg[] = "Successfully connected. Use \"exit\" to exit.\n";
+	send(clientConn, welcomeMsg, strlen(welcomeMsg), 0);
 
-	if (recv(clientConn, buffer, BUFFER_SIZE, 0)) {
-		printf("Client sent: %s\n", buffer);
+	// keep accepting commands until exit
+	while (1) {
 
-		char command[10], arg[BUFFER_SIZE - 10];
-		sscanf(buffer, "%s %[^\n]", command, arg);
+		// clear buffer with all null bytes (so accepted string always ends in a null byte)
+		for (int i = 0; i < 1024; i++) buffer[i] = '\0';
 
-		if (strcmp(command, "echo") == 0) {
-			send(clientConn, arg, strlen(arg), 0);
-		}
-		else if (strncmp(command, "repeat", 6) == 0) {
-			for (int i = 0; i < (command[6] - '0'); i++) {
-				send(clientConn, arg, strlen(arg), 0);
-			}
-		}
-		else if (strcmp(command, "length") == 0) {
-			int len = strlen(arg);
-			if (len < 2 || len > 9) {
-				char msg[] = "Invalid Command";
-				send(clientConn, msg, strlen(msg), 0);
-				closesocket(clientSocket);
-				_endthreadex(0);
-				return 0;
-			}
-			char len_buf[3];
-			sprintf(len_buf, "%d", len);
-			send(clientConn, len_buf, strlen(len_buf), 0);
-		}
-		else if (strcmp(command, "md5") == 0) {
-			char md5_str[33];
-			get_md5(arg, &md5_str);
-			send(clientConn, md5_str, strlen(md5_str), 0);
+		// receive client message in buffer
+		bytesReceived = recv(clientConn, buffer, BUFFER_SIZE, 0);
 
-		}
-		else if (strcmp(command, "sha1") == 0) {
-			char sha1_str[41];
-			get_sha1(arg, &sha1_str);
-			send(clientConn, sha1_str, strlen(sha1_str), 0);
-		}
-		else if (strcmp(command, "sha256") == 0) {
-			char sha256_str[65];
-			get_sha256(arg, &sha256_str);
-			send(clientConn, sha256_str, strlen(sha256_str), 0);
-		}
+		// If client disconnects, exit the thread
+		if (bytesReceived == SOCKET_ERROR || bytesReceived == 0) {
+			break;
+		} 
 		else {
-			char msg[] = "Invalid Command";
-			send(clientConn, msg, strlen(msg), 0);
+			printf("Client sent: %s\n", buffer);
+
+			// separate client message into command and arguments
+			char command[10], arg[BUFFER_SIZE - 10];
+			sscanf(buffer, "%s %[^\n]", command, arg);
+
+			// determine which command is sent and handle accordingly
+			if (strcmp(command, "echo") == 0) {
+				send(clientConn, arg, strlen(arg), 0);
+				send(clientConn, "\n", 1, 0);
+			}
+			else if (strncmp(command, "repeat", 6) == 0) {
+				// ensure repeat command is valid (repeat2 - repeat9)
+				int repeatTimes = command[6] - '0';
+				if (repeatTimes < 2 || repeatTimes > 9 || strlen(command) > 7) {
+					char msg[] = "Invalid Command. Repeat times must be between 2 and 9.\n";
+					send(clientConn, msg, strlen(msg), 0);
+					continue;
+				}
+
+				for (int i = 0; i < (command[6] - '0'); i++) {
+					send(clientConn, arg, strlen(arg), 0);
+					send(clientConn, "\n", 1, 0);
+				}
+			}
+			else if (strcmp(command, "length") == 0) {
+				int len = strlen(arg);
+				char len_buf[3];
+				sprintf(len_buf, "%d", len);
+				send(clientConn, len_buf, strlen(len_buf), 0);
+				send(clientConn, "\n", 1, 0);
+			}
+			else if (strcmp(command, "md5") == 0) {
+				char md5_str[33];
+				get_md5(arg, &md5_str);
+				send(clientConn, md5_str, strlen(md5_str), 0);
+				send(clientConn, "\n", 1, 0);
+
+			}
+			else if (strcmp(command, "sha1") == 0) {
+				char sha1_str[41];
+				get_sha1(arg, &sha1_str);
+				send(clientConn, sha1_str, strlen(sha1_str), 0);
+				send(clientConn, "\n", 1, 0);
+			}
+			else if (strcmp(command, "sha256") == 0) {
+				char sha256_str[65];
+				get_sha256(arg, &sha256_str);
+				send(clientConn, sha256_str, strlen(sha256_str), 0);
+				send(clientConn, "\n", 1, 0);
+			}
+			else if (strcmp(command, "exit") == 0) {
+				break;
+			}
+			else {
+				char msg[] = "Invalid Command\n";
+				send(clientConn, msg, strlen(msg), 0);
+			}
 		}
 	}
 	closesocket(clientSocket);

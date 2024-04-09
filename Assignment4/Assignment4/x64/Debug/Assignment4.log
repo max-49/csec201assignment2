@@ -1,32 +1,30 @@
 ﻿  Source.c
-C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(21,36): warning C4267: 'function': conversion from 'size_t' to 'DWORD', possible loss of data
-C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(28,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(41,36): warning C4267: 'function': conversion from 'size_t' to 'DWORD', possible loss of data
-C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(48,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(61,36): warning C4267: 'function': conversion from 'size_t' to 'DWORD', possible loss of data
-C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(68,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(87,26): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(91,34): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(98,27): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(99,17): warning C4047: 'function': 'SOCKET' differs in levels of indirection from 'SOCKET *'
-C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(99,17): warning C4024: 'closesocket': different types for formal and actual parameter 1
-C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(105,30): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(109,17): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[33]'
-C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(109,17): warning C4024: 'get_md5': different types for formal and actual parameter 2
-C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(110,30): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(115,18): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[41]'
-C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(115,18): warning C4024: 'get_sha1': different types for formal and actual parameter 2
-C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(116,31): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(120,20): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[65]'
-C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(120,20): warning C4024: 'get_sha256': different types for formal and actual parameter 2
-C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(121,33): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(125,26): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(128,14): warning C4047: 'function': 'SOCKET' differs in levels of indirection from 'SOCKET *'
-C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(128,14): warning C4024: 'closesocket': different types for formal and actual parameter 1
-C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(84,3): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(95,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(104,4): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(76,6): warning C4101: 'bytesReceived': unreferenced local variable
-C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(183,39): warning C4133: 'function': incompatible types - from 'sockaddr_in *' to 'sockaddr *'
-C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(186,10): warning C4047: '=': 'HANDLE' differs in levels of indirection from 'uintptr_t'
+C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(30,36): warning C4267: 'function': conversion from 'size_t' to 'DWORD', possible loss of data
+C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(37,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(57,36): warning C4267: 'function': conversion from 'size_t' to 'DWORD', possible loss of data
+C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(64,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(84,36): warning C4267: 'function': conversion from 'size_t' to 'DWORD', possible loss of data
+C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(91,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(110,31): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(134,27): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(142,28): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(147,28): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(155,31): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(160,18): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[33]'
+C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(160,18): warning C4024: 'get_md5': different types for formal and actual parameter 2
+C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(161,31): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(167,19): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[41]'
+C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(167,19): warning C4024: 'get_sha1': different types for formal and actual parameter 2
+C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(168,32): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(173,21): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[65]'
+C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(173,21): warning C4024: 'get_sha256': different types for formal and actual parameter 2
+C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(174,34): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(182,27): warning C4267: 'function': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(186,14): warning C4047: 'function': 'SOCKET' differs in levels of indirection from 'SOCKET *'
+C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(186,14): warning C4024: 'closesocket': different types for formal and actual parameter 1
+C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(130,4): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(152,15): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(154,5): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(218,39): warning C4133: 'function': incompatible types - from 'sockaddr_in *' to 'sockaddr *'
+C:\Users\massi\Documents\csec201\Assignment4\Assignment4\Source.c(221,10): warning C4047: '=': 'HANDLE' differs in levels of indirection from 'uintptr_t'
   Assignment4.vcxproj -> C:\Users\massi\Documents\csec201\Assignment4\x64\Debug\Assignment4.exe
